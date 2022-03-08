@@ -19,6 +19,7 @@ const Header = () => {
           style={{
             fontSize: 25,
             fontWeight: "bold",
+            color: "white",
           }}
         >
           Manan Shah

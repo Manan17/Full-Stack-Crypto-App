@@ -1,6 +1,7 @@
 import React from "react";
 import { Dimensions, Image, StyleSheet, Text, View } from "react-native";
 import { Icon } from "react-native-elements";
+import { colors } from "../constants/theme";
 
 const PortfolioCard = ({ imageUrl, name, amount, rate }) => {
   return (
@@ -26,7 +27,7 @@ const PortfolioCard = ({ imageUrl, name, amount, rate }) => {
         <Text
           style={{
             fontSize: 16,
-            color: "#cccccc",
+            color: colors.darkGray,
           }}
         >
           Portfolio
@@ -82,7 +83,7 @@ export default PortfolioCard;
 const styles = StyleSheet.create({
   portfolioCard: {
     marginTop: 20,
-    backgroundColor: "white",
+    backgroundColor: colors.lightGray,
     padding: 20,
     width: Dimensions.get("screen").width / 1.8,
     paddingBottom: 30,

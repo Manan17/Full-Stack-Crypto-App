@@ -3,7 +3,7 @@ import { FlatList, StatusBar, StyleSheet, Text, View } from "react-native";
 import Card from "../components/Card";
 import Header from "../components/Header";
 import PortfolioCard from "../components/PortfolioCard";
-
+import { colors } from "../constants/theme";
 const portfolioData = [
   {
     id: 1,
@@ -53,6 +53,7 @@ const HomeScreen = () => {
           style={{
             fontSize: 25,
             fontWeight: "700",
+            color: "white",
           }}
         >
           My Portfolio
@@ -80,9 +81,8 @@ export default HomeScreen;
 
 const styles = StyleSheet.create({
   homescreen: {
-    backgroundColor: "#EFF8FF",
+    backgroundColor: colors.background,
     flex: 1,
-    marginTop: StatusBar.currentHeight,
     padding: 20,
   },
 });

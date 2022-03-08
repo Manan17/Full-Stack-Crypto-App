@@ -1,6 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { Icon } from "react-native-elements";
+import { colors } from "../constants/theme";
 
 const Card = () => {
   return (
@@ -78,7 +79,7 @@ export default Card;
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: "#3DB2FF",
+    backgroundColor: colors.lightPurple,
     padding: 30,
     marginTop: 30,
     borderRadius: 30,

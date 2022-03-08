@@ -10,11 +10,11 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 import { colors } from "../constants/theme";
-import google from "../assets/google.png";
-import facebook from "../assets/apple-logo.png";
 import TopHeader from "../components/TopHeader";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { LinearGradient } from "expo-linear-gradient";
+import client from "../api/client";
+import SocialAuth from "../components/SocialAuth";
 const SignupScreen = ({ navigation }) => {
   const [focus1, setFocus1] = useState(false);
   const [focus2, setFocus2] = useState(false);
@@ -22,23 +22,33 @@ const SignupScreen = ({ navigation }) => {
   const [focus4, setFocus4] = useState(false);
   const [visibility, setVisibilty] = useState(false);
   const [visibility2, setVisibilty2] = useState(false);
+  const [userName, setUserName] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [confirmpassword, setConfirmPassword] = useState("");
+  const signUp = async () => {
+    const values = {
+      userName,
+      password,
+      email,
+      confirmpassword,
+    };
+
+    const result = await client.post("/create-user", {
+      ...values,
+    });
+    setUserName("");
+    setPassword("");
+    setEmail("");
+    setConfirmPassword("");
+  };
   return (
     <View style={styles.main}>
       <StatusBar backgroundColor="black" />
       <ScrollView>
         <View style={styles.container}>
           <TopHeader navigation={navigation} title="Sign Up" />
-          <Text style={styles.options__text}>
-            Sign Up with one of the following options
-          </Text>
-          <View style={styles.social_media_container}>
-            <TouchableOpacity style={styles.image__container}>
-              <Image source={google} style={styles.image} />
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.image__container}>
-              <Image source={facebook} style={styles.image} />
-            </TouchableOpacity>
-          </View>
+          <SocialAuth />
           <View style={styles.input_form_container}>
             <TextInput
               placeholder="Enter Username"
@@ -49,6 +59,8 @@ const SignupScreen = ({ navigation }) => {
               placeholderTextColor={colors.lightGray}
               onFocus={() => setFocus1(true)}
               onBlur={() => setFocus1(false)}
+              value={userName}
+              onChangeText={(text) => setUserName(text)}
             />
             <TextInput
               placeholder="Enter Email"
@@ -59,6 +71,8 @@ const SignupScreen = ({ navigation }) => {
               placeholderTextColor={colors.lightGray}
               onFocus={() => setFocus2(true)}
               onBlur={() => setFocus2(false)}
+              value={email}
+              onChangeText={(text) => setEmail(text)}
             />
             <View style={styles.passwordContainer}>
               <TextInput
@@ -71,6 +85,8 @@ const SignupScreen = ({ navigation }) => {
                 placeholderTextColor={colors.lightGray}
                 onFocus={() => setFocus3(true)}
                 onBlur={() => setFocus3(false)}
+                value={password}
+                onChangeText={(text) => setPassword(text)}
               />
               <TouchableOpacity
                 style={{ marginLeft: 10 }}
@@ -94,6 +110,8 @@ const SignupScreen = ({ navigation }) => {
                 placeholderTextColor={colors.lightGray}
                 onFocus={() => setFocus4(true)}
                 onBlur={() => setFocus4(false)}
+                value={confirmpassword}
+                onChangeText={(text) => setConfirmPassword(text)}
               />
               <TouchableOpacity
                 style={{ marginLeft: 10 }}
@@ -106,7 +124,11 @@ const SignupScreen = ({ navigation }) => {
                 />
               </TouchableOpacity>
             </View>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => {
+                signUp();
+              }}
+            >
               <LinearGradient
                 colors={[colors.darkPurple, colors.lightPurple]}
                 style={styles.button_container}
@@ -147,28 +169,7 @@ const styles = StyleSheet.create({
   container__text: {
     color: "white",
   },
-  options__text: {
-    marginTop: 40,
-    color: colors.lightGray,
-    fontFamily: "sans-serif-medium",
-    fontSize: 15,
-  },
-  social_media_container: {
-    marginTop: 20,
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
-  image__container: {
-    backgroundColor: "#b8b8b840",
-    width: 170,
-    alignItems: "center",
-    paddingVertical: 10,
-    borderRadius: 20,
-  },
-  image: {
-    width: 50,
-    height: 50,
-  },
+
   input_form_container: {
     marginTop: 20,
   },
