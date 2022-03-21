@@ -14,6 +14,8 @@
     "@react-navigation/stack": "^6.1.1",
     "axios": "^0.21.4",
     "expo": "~42.0.1",
+    "expo-linear-gradient": "~9.2.0",
+    "expo-react-native-shadow": "^1.0.3",
     "expo-status-bar": "~1.0.4",
     "react": "16.13.1",
     "react-dom": "16.13.1",
@@ -23,9 +25,9 @@
     "react-native-paper": "^4.9.2",
     "react-native-safe-area-context": "3.2.0",
     "react-native-screens": "~3.4.0",
+    "react-native-simple-shadow-view": "^1.6.3",
     "react-native-vector-icons": "^8.1.0",
-    "react-native-web": "~0.13.12",
-    "expo-linear-gradient": "~9.2.0"
+    "react-native-web": "~0.13.12"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0"

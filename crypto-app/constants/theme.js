@@ -1,8 +1,15 @@
 export const colors = {
-  background: "#050507",
-  darkGray: "#554454",
+  background: "#FFFFFF",
+  darkGray: "#526157",
   purple: "#8d0696",
   darkPurple: "#9d0570",
   lightGray: "#b8b8b8",
   lightPurple: "#c44bc1",
+  gray: "#7d847e",
+  darkOrange: "#dc9e41",
+  offBlue: "#e5eff3",
+  skyblue: "#acc1fb",
+  black: "#060607",
+  peach: "#fdd5a730",
+  blue: "#a4bea8",
 };

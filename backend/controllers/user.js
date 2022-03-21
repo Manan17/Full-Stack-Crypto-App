@@ -1,7 +1,6 @@
 const User = require("../models/user");
 const jwt = require("jsonwebtoken");
 exports.createUser = async (req, res) => {
-  
   const { userName, password, email } = req.body;
   const isUser = await User.isUserInDB(email);
 
@@ -34,7 +33,7 @@ exports.signIn = async (req, res) => {
     return res.json({
       success: false,
       message: "Incorrect Password",
-    }); 
+    });
 
   const token = jwt.sign(
     {
@@ -46,10 +45,15 @@ exports.signIn = async (req, res) => {
     }
   );
 
+  const userInfo = {
+    userName: user.userName,
+    email: user.email,
+    avatar: user.avatar ? user.avatar : "",
+  };
+
   res.json({
     success: true,
-    user,
-    token
+    user: userInfo,
+    token,
   });
-
 };

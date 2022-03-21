@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from "react-native";
 const CoinsScreen = () => {
   return (
     <View>
-      <Text>coins</Text>
+      <Text>Hello</Text>
     </View>
   );
 };

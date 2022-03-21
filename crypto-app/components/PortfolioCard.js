@@ -83,12 +83,11 @@ export default PortfolioCard;
 const styles = StyleSheet.create({
   portfolioCard: {
     marginTop: 20,
-    backgroundColor: colors.lightGray,
+    backgroundColor: colors.peach,
     padding: 20,
     width: Dimensions.get("screen").width / 1.8,
     paddingBottom: 30,
-    elevation: 2,
-    borderRadius: 30,
+    borderRadius: 20,
     marginRight: 20,
     marginBottom: 20,
   },

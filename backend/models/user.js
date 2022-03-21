@@ -51,4 +51,5 @@ userSchema.statics.isUserInDB = async function (email) {
   }
 };
 
+
 module.exports = mongoose.model("User", userSchema);

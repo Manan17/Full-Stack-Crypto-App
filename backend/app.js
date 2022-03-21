@@ -17,7 +17,7 @@ const app = express();
 app.use(userRouter);
 
 app.get("/", (req, res) => {
-  res.send("Hello World");
+  res.json({success:true, message:"Welcome to backend server"});
 });
 
 app.listen(8000, () => {
