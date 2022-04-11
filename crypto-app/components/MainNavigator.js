@@ -20,9 +20,10 @@ const MainNavigator = () => {
     return (
       <NavigationContainer>
         <Tab.Navigator
-          activeColor={colors.lightPurple}
+          activeColor="#86E7B3"
+          inactiveColor="lightgray"
           barStyle={{
-            backgroundColor: colors.background,
+            backgroundColor: "white",
           }}
           labeled={false}
         >
